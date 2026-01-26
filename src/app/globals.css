@@ -1,26 +1,306 @@
+/* ============================================
+   VideoBriefly Design System
+   Exact match to provided templates
+   ============================================ */
+
+/* Tailwind CSS */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Tailwind Theme Configuration */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Light Mode Colors */
+  --color-primary: #0b50da;
+  --color-background-light: #f5f6f8;
+  --color-card-light: #ffffff;
+  --color-text-main: #0d121c;
+  --color-text-muted: #49659c;
+  --color-border-subtle: #e2e8f0;
+
+  /* Dark Mode Colors */
+  --color-background-dark: #0B0B0B;
+  --color-surface-dark: #121212;
+  --color-card-dark: #1a2230;
+  --color-border-dark: #27272a;
+  --color-text-light: #F3F4F6;
+  --color-text-muted-dark: #9CA3AF;
+
+  /* Typography */
+  --font-display: 'Inter', sans-serif;
+  --font-serif: 'Lora', 'Merriweather', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Light Mode (default) */
+body {
+  background-color: #f5f6f8;
+  color: #0d121c;
+}
+
+/* Dark Mode */
+.dark body,
+body.dark {
+  background-color: #0B0B0B;
+  color: #F3F4F6;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(11, 80, 218, 0.3);
+  color: inherit;
+}
+
+.dark ::selection {
+  background-color: rgba(25, 93, 230, 0.3);
+  color: white;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0B0B0B;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Paper shadow (editorial style) */
+.paper-shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+}
+
+.shadow-subtle {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.shadow-paper {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* Font families */
+.font-display {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Lora', 'Merriweather', serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Line height for paragraphs */
+.leading-loose-p {
+  line-height: 2;
+}
+
+/* Safe area padding for iOS */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Material Icons filled style */
+.material-symbols-outlined.filled {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #0b50da;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0945b8;
+}
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #121212;
+  border: 1px solid #27272a;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #1a1a1a;
+  border-color: #3f3f46;
+}
+
+/* Card styles */
+.card-light {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+}
+
+.card-dark {
+  background-color: #1a2230;
+  border: 1px solid #27272a;
+  border-radius: 0.5rem;
+}
+
+/* Chip styles */
+.chip-active {
+  display: flex;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 9999px;
+  background-color: #0b50da;
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.chip-inactive {
+  display: flex;
+  height: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 9999px;
+  background-color: white;
+  color: #0d121c;
+  border: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.dark .chip-inactive {
+  background-color: #1a2230;
+  color: #d1d5db;
+  border-color: #374151;
+}
+
+/* Input styles */
+.input-search {
+  width: 100%;
+  height: 3rem;
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+  background-color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 0 1px rgb(0 0 0 / 0.05);
+}
+
+.dark .input-search {
+  background-color: #1a2230;
+  color: white;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.input-search:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #0b50da;
+}
+
+.input-search::placeholder {
+  color: #49659c;
+}
+
+.dark .input-search::placeholder {
+  color: #6b7280;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f5f6f8;
+  border-top: 1px solid #e5e7eb;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.dark .bottom-nav {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+}
+
+/* Dot pattern background */
+.dot-pattern {
+  background-image: radial-gradient(#000 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.03;
+}
+
+/* Timeline connector */
+.timeline-connector {
+  position: absolute;
+  left: 27px;
+  top: 0.5rem;
+  bottom: 1rem;
+  width: 1px;
+  background-color: #e2e8f0;
+}
+
+.dark .timeline-connector {
+  background-color: #27272a;
 }
