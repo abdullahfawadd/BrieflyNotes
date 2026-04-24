@@ -73,7 +73,7 @@ export async function extractArticleContent(url: string): Promise<ArticleResult>
         return {
             success: true,
             text: truncatedText,
-            title: article.title
+            title: article.title ?? undefined
         };
     } catch (error) {
         const message = error instanceof Error ? error.message : 'Unknown error';
