@@ -1,52 +1,42 @@
 # BrieflyNotes
 
-AI-powered video summarization SaaS. Transform YouTube videos, articles, and text into structured study notes in seconds.
+A pixel-focused **coming soon** landing page for BrieflyNotes, built with Next.js and Tailwind CSS, including a waitlist form backend.
 
-## Features
+## What is included
 
-- 🎬 **YouTube Summarization** - Extract and summarize any video with transcript
-- 📄 **Article Parsing** - Clean extraction from web articles
-- 🧠 **AI-Powered** - GPT-4 powered summaries with accurate understanding
-- 📋 **Multiple Modes** - Quick Notes, Study Notes, or Action Points
-- 📤 **Export Options** - Copy, PDF, or Markdown export
-- 📚 **Library** - Save and organize your summaries
+- Responsive dark coming-soon UI inspired by the provided reference
+- Email capture form with client-side UX feedback
+- Backend API route at `POST /api/notify`
+- Notification delivery options:
+  - Send email notifications to `abdullahfawad.dev@gmail.com` using Resend
+  - Append entries to Google Sheets using an Apps Script webhook
 
 ## Tech Stack
 
-- **Frontend**: Next.js 15, React, Tailwind CSS
-- **Database**: PostgreSQL + Prisma
-- **Auth**: NextAuth.js (Google, GitHub, Email)
-- **AI**: OpenAI GPT-4
-- **Payments**: Lemon Squeezy
+- Next.js (App Router)
+- React
+- Tailwind CSS
 
 ## Getting Started
 
 ```bash
-# Install dependencies
 npm install
-
-# Set up environment variables
 cp .env.example .env.local
-
-# Run database migrations
-npx prisma migrate dev
-
-# Start development server
 npm run dev
 ```
+
+Open `http://localhost:3000`.
 
 ## Environment Variables
 
 ```env
-DATABASE_URL="postgresql://..."
-NEXTAUTH_SECRET="..."
-NEXTAUTH_URL="http://localhost:3000"
-GOOGLE_CLIENT_ID="..."
-GOOGLE_CLIENT_SECRET="..."
-OPENAI_API_KEY="..."
-LEMONSQUEEZY_API_KEY="..."
+# Optional: Resend for email notifications
+RESEND_API_KEY=your_resend_api_key
+RESEND_FROM_EMAIL="BrieflyNotes Waitlist <onboarding@resend.dev>"
+NOTIFY_TO_EMAIL=abdullahfawad.dev@gmail.com
+
+# Optional: Google Sheets Apps Script webhook
+GOOGLE_SHEETS_WEBHOOK_URL=https://script.google.com/macros/s/your-script-id/exec
 ```
 
-## License
-
-MIT
+You can configure either Resend or Google Sheets, or both.

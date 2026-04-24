@@ -1,4 +1,5 @@
 import { Summary, SummaryMode } from '@/types';
+import { OpenAIProvider } from './openai';
 
 // AI Provider Interface - allows swapping providers easily
 export interface AIProvider {
@@ -9,6 +10,5 @@ export interface AIProvider {
 export function getAIProvider(): AIProvider {
     // For MVP, only OpenAI is implemented
     // Future: could read from env to select provider
-    const { OpenAIProvider } = require('./openai');
     return new OpenAIProvider();
 }
