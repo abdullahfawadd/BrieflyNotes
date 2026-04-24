@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "VideoBriefly - Turn Research into Video",
-  description: "AI-driven summaries for the modern academic. Convert papers into engaging video abstracts in minutes.",
-  keywords: ["video summary", "AI notes", "research", "academic", "video abstracts"],
+  title: "BrieflyNotes — Coming Soon",
+  description: "BrieflyNotes is launching soon. Join the waitlist for AI-powered learning from video.",
+  keywords: ["coming soon", "waitlist", "brieflynotes", "AI learning", "video notes"],
 };
 
 export default function RootLayout({
